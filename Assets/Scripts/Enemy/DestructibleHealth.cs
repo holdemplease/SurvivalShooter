@@ -14,6 +14,7 @@ public class DestructibleHealth : MonoBehaviour
 	public float explodeForce = 10.0F;
 	public int explosionDamage = 100;
 	public Transform explosionParticleEffect;
+//	public Transform hitParticleEffect;
 	
 	
 	//	Animator anim;
@@ -26,7 +27,6 @@ public class DestructibleHealth : MonoBehaviour
 	
 	void Awake ()
 	{
-		//		anim = GetComponent <Animator> ();
 		enemyAudio = GetComponent <AudioSource> ();
 		hitParticles = GetComponentInChildren <ParticleSystem> ();
 		capsuleCollider = GetComponent <CapsuleCollider> ();
@@ -38,10 +38,6 @@ public class DestructibleHealth : MonoBehaviour
 	
 	void Update ()
 	{
-		if(isSinking)
-		{
-			//			transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
-		}
 	}
 	
 	
@@ -73,21 +69,10 @@ public class DestructibleHealth : MonoBehaviour
 	{
 		isDead = true;
 		
-		//		capsuleCollider.isTrigger = true;
-		
-		//		anim.SetTrigger ("Dead");
-
 		enemyAudio.clip = deathClip;
 		enemyAudio.Play ();
 
 		inflictAreaDamage ();
-//		transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
-//		GetComponent <Rigidbody> ().isKinematic = true;
-//		Destroy (gameObject, 2f);
-//		Invoke ("RemoveObject", 1);
-		// launch the can upward with the final explosion
-//		rigidBody.AddForce(Vector3.up * thrust*5);
-
 		Instantiate(explosionParticleEffect, transform.position, Quaternion.identity);
 
 		Destroy (gameObject, 2f);
