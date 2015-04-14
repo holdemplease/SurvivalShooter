@@ -30,7 +30,6 @@ public class DestructibleHealth : MonoBehaviour
 		hitParticles = GetComponentInChildren <ParticleSystem> ();
 		capsuleCollider = GetComponent <CapsuleCollider> ();
 		rigidBody = GetComponent<Rigidbody>();
-		attackerTransform = GetComponent<Transform> ();
 		
 		currentHealth = startingHealth;
 	}
@@ -56,8 +55,10 @@ public class DestructibleHealth : MonoBehaviour
 		
 		hitParticles.transform.position = hitPoint;
 		hitParticles.Play();
-		
-		rigidBody.AddRelativeForce(attackerTransform.forward * thrust);
+
+		rigidBody.AddForce(attackerTransform.forward * thrust);
+		rigidBody.AddForceAtPosition(attackerTransform.forward * thrust, hitPoint);
+
 		Debug.Log("The direction is "+ attackerTransform.forward);
 
 		if(currentHealth <= 0)
@@ -88,20 +89,6 @@ public class DestructibleHealth : MonoBehaviour
 
 		Destroy (gameObject, 2f);
 	}
-
-//	void RemoveObject()
-//	{
-////		GetComponent <Rigidbody> ().isKinematic = true;
-//
-//	}
-
-//	public void StartSinking ()
-//	{
-//		//		GetComponent <Rigidbody> ().isKinematic = true;
-//		isSinking = true;
-//		//		ScoreManager.score += scoreValue;
-//		//		Destroy (gameObject, 2f);
-//	}
 	
 	public void inflictAreaDamage ()
 	{
@@ -113,8 +100,11 @@ public class DestructibleHealth : MonoBehaviour
 			{
 				hit.attachedRigidbody.AddExplosionForce (explodeForce, explosionPos, explodeRadius);
 				EnemyHealth enemyHealth = hit.GetComponent<EnemyHealth> ();
-				if(enemyHealth)
+				PlayerHealth playerHealth = hit.GetComponent<PlayerHealth> ();
+				if (enemyHealth)
 					enemyHealth.TakeDamage (explosionDamage, hit.attachedRigidbody.transform.position);
+				else if (playerHealth)
+					playerHealth.TakeDamage (explosionDamage);
 			}
 		}
 	}
