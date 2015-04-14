@@ -194,7 +194,7 @@ MonoBehaviour:
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 8300000, guid: 7f4bea8d452bb4146a6bef417ddfa22f, type: 3}
-  thrust: 200
+  thrust: 100
   rigidBody: {fileID: 5413062}
   attackerTransform: {fileID: 0}
   explodeRadius: 5
