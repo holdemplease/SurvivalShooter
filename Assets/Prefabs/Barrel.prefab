@@ -200,6 +200,8 @@ MonoBehaviour:
   explodeRadius: 5
   explodeForce: 10
   explosionDamage: 100
+  explosionParticleEffect: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426,
+    type: 2}
 --- !u!136 &13621622
 CapsuleCollider:
   m_ObjectHideFlags: 1

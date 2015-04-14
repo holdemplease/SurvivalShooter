@@ -13,6 +13,7 @@ public class DestructibleHealth : MonoBehaviour
 	public float explodeRadius = 5.0F;
 	public float explodeForce = 10.0F;
 	public int explosionDamage = 100;
+	public Transform explosionParticleEffect;
 	
 	
 	//	Animator anim;
@@ -85,7 +86,9 @@ public class DestructibleHealth : MonoBehaviour
 //		Destroy (gameObject, 2f);
 //		Invoke ("RemoveObject", 1);
 		// launch the can upward with the final explosion
-		rigidBody.AddForce(Vector3.up * thrust*5);
+//		rigidBody.AddForce(Vector3.up * thrust*5);
+
+		Instantiate(explosionParticleEffect, transform.position, Quaternion.identity);
 
 		Destroy (gameObject, 2f);
 	}
