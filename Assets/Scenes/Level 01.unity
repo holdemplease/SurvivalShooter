@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .27735728, g: .838235259, b: .39726907, a: 1}
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -1381,14 +1381,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 11483432, guid: 154cbc48e6e274cb78f2c094adeafb75, type: 2}
-      propertyPath: healthSlider
+    - target: {fileID: 22337102, guid: 154cbc48e6e274cb78f2c094adeafb75, type: 2}
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1017517031}
+      objectReference: {fileID: 1919720128}
     - target: {fileID: 11483432, guid: 154cbc48e6e274cb78f2c094adeafb75, type: 2}
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 153533972}
+    - target: {fileID: 22404086, guid: 154cbc48e6e274cb78f2c094adeafb75, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22404086, guid: 154cbc48e6e274cb78f2c094adeafb75, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 154cbc48e6e274cb78f2c094adeafb75, type: 2}
   m_IsPrefabParent: 0
@@ -1742,7 +1750,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!114 &1919720130
 MonoBehaviour:
   m_ObjectHideFlags: 0
