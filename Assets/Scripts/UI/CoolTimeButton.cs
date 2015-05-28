@@ -21,6 +21,11 @@ public class CoolTimeButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (leftTime == 0 && Input.GetKeyDown ("q")) {
+			ResetCooltime ();
+			return;
+		}
+
 		if (leftTime > 0) {
 			leftTime -= Time.deltaTime;
 			if (leftTime < 0) {
